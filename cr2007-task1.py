@@ -1,4 +1,13 @@
-import pytest
+"""
+This module contains functions to calculate the Index of Coincidence (IoC) for a given message. The IoC is a measure of how similar the frequency distribution of letters in a message is to the expected frequency distribution of letters in the language the message is written in. A higher IoC value indicates a higher likelihood that the message is written in the language.
+
+Functions:
+    get_letter_count(message: str) -> dict:
+        Returns a dictionary with keys of single letters and values of the count of how many times they appear in the message parameter.
+
+    calculate_index_of_coincidence(message: str, debug: bool = False) -> float:
+        Calculates the Index of Coincidence (IoC) for a given message.
+"""
 
 ETAOIN = 'ETAOINSHRDLCUMWFGYPBVKJXQZ'
 LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
