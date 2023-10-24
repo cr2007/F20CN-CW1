@@ -78,7 +78,7 @@ def calculate_index_of_coincidence(message: str, debug: bool = False) -> float:
 
 	# Debug Statement
 	if debug:
-		print(F"(DEBUG) Index of Coincidence: {index_of_coincidence}")
+		print(f"(DEBUG) Index of Coincidence: {index_of_coincidence}")
 
 	return round(index_of_coincidence, 4)
 

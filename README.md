@@ -19,6 +19,7 @@ text
   - [ ] The results for the key length guesses should be 4, 5, and 6.
 
 IC formula
+
 $$
 IC = \frac{\sum_{i=1}^{26}f_i * (f_i-1)}{L * (L-1)}
 $$
