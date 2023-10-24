@@ -122,8 +122,7 @@ def key_length_guess(message: str, key_length: int, debug: bool = False):
 
 	# Get the average IoC of the sub-messages
 	average_ioc = sum(sub_message_iocs) / len(sub_message_iocs)
-	if debug:
-		print(f"Average IoC for Key Length {key_length} = {round(average_ioc, 4)}")
+	print(f"Average IoC for Key Length {key_length} = {round(average_ioc, 4)}")
 
 	# Get the closest key length
 	ioc_english = 0.0686
@@ -133,7 +132,7 @@ def key_length_guess(message: str, key_length: int, debug: bool = False):
 
 	# Check if the difference between the average IoC and the IoC of English is less than 0.01
 	if abs(average_ioc - ioc_english) < 0.01:
-		print(f"Key Length {key_length} is a possible key length.\n")
+		print(f"{key_length} is a possible key length.\n")
 
 
 message = "PogcpenatlfrdypsogtjgsqtiznsekvrkptisannfuoobvaordjsnuipogmjjtnehvlqcizvqlntrgeaZfkojisgptiiarxjaraacizghkadtwvrqiheofhxegfouvadfgfmauijhunxegtibUozoiseyegtiruapogrbrsfegyapndjuohhtrgpavsunwzsawctoxdqcoadtucxibstatwvtapVrusewzsetgvnstwZftexjwqazuiecgveflnyaettehussfwzfpclAuitlaojkctaceogthdadtwzmmtzvyyobvnfsXwhqihmedylvawacurqasptafpclxeieafugvtmktztecdlreeSfnatgzswojksticznsauvenltjubegzodiidishirpbepicdutcodseztqfjcBgtxwyaugdaettiiefximunwzsbohztuocpefydlkzolpogrhvlrtdsefhtdoderrpmbavhudtpogrizmqacubqppkiqniZtusiyezailrmlrfudstfffhxegetwrtbolvrqvtetgaacyrasvsmnsnemktesKojimmsivriiacfmlajoyesrymnszfkojglmyxkrugwkyaulzlxojkluvtrnpsddepanfufswznqhxd"
@@ -141,6 +140,8 @@ message = "Pogcpenatlfrdypsogtjgsqtiznsekvrkptisannfuoobvaordjsnuipogmjjtnehvlqc
 # print(get_letter_count(message))
 # print(get_frequency_order(message))
 # print(calculate_index_of_coincidence(message, True))
-key_length_guess(message, 4, True)
+key_length_guess(message, 3)
+key_length_guess(message, 4)
 key_length_guess(message, 5)
 key_length_guess(message, 6)
+key_length_guess(message, 7)
