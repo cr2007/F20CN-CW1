@@ -27,8 +27,29 @@ def get_letter_count(message) -> dict:
 	return letter_count
 
 
-def calculate_index_of_conincidence(message: str, debug: bool=False) -> float:
-	# TODO: Implement this function
+def calculate_index_of_conincidence(message: str, debug: bool = False) -> float:
+	"""
+	Calculates the Index of Coincidence (IoC) for a given message.
+
+	The IoC is a measure of how similar the frequency distribution of letters in a message is to the expected frequency
+	distribution of letters in the language the message is written in. A higher IoC value indicates a higher likelihood
+	that the message is written in the language.
+
+	Args:
+		message (str): The message to calculate the IoC for.
+		debug (bool, optional): Whether to print debug information to the console. Defaults to False.
+
+	Returns:
+		float: The calculated IoC value, rounded to 4 decimal places.
+
+	Raises:
+		TypeError: If the message argument is not a string.
+
+	"""
+
+	# Check that the message is a string
+	if not isinstance(message, str):
+		raise TypeError("Message must be a string.")
 
 	message_length: str = len(message)
 
