@@ -37,10 +37,10 @@ def calculate_index_of_conincidence(message: str, debug: bool=False) -> float:
 		print(f"(DEBUG) Message length: {message_length}")
 
 	# First, get a dictionary of each letter and its frequency count:
-	letter_to_freq = get_letter_count(message)
+	letter_to_freq: dict = get_letter_count(message)
 
 	# Initialises the Index of Coincidence variable with the numerator
-	index_of_coincidence = sum( probability * (probability-1) for probability in letter_to_freq.values() )
+	index_of_coincidence: float = sum( probability * (probability-1) for probability in letter_to_freq.values() )
 
 	# Divide by the denominator
 	index_of_coincidence /= ( message_length * (message_length - 1) )
