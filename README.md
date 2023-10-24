@@ -35,3 +35,4 @@ Tasks:
     - [ ] Password
     - [ ] Remainder of the plaintext
   - [ ] Call the `openssl` command and check the resulting file
+  - [ ] Create a loop to read each line and use it as a password? In bash
