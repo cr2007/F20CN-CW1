@@ -22,8 +22,7 @@ def get_letter_count(message) -> dict:
 	letter_count = {letter: 0 for letter in LETTERS}
 	
 	for letter in message.upper():
-		if letter in LETTERS:
-			letter_count[letter] += 1
+		letter_count[letter] += 1 if letter in LETTERS else 0
 
 	return letter_count
 
