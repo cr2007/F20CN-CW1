@@ -28,68 +28,27 @@ def get_letter_count(message) -> dict:
 	return letter_count
 
 
-def get_item_at_index_zero(items):
-	"""Returns the item at index zero.
+def calculate_index_of_conincidence(message: str):
+	# TODO: Implement this function
 
-	Args:
-		items (list): A list of items.
-
-	Returns:
-		any: The first item in the given list.
-
-	Raises:
-		IndexError: If the given list is empty.
-	"""
-	return items[0]
-
-
-def get_frequency_order(message: str) -> list[tuple]:
-	"""
-	Returns a list of tuples containing the characters in the message parameter
-	and their frequency, sorted by frequency in descending order.
-
-	Args:
-		message (str): The string to count the letters of.
-
-	Returns:
-		list[tuple]: A list of tuples containing the character and its frequency,
-		sorted by frequency in descending order.
-
-	Raises:
-		TypeError: If the message parameter is not a string.
-	"""
+	message_length = len(message)
+	print(f"Message length: {message_length}")
 
 	# First, get a dictionary of each letter and its frequency count:
-	letterToFreq = get_letter_count(message)
+	letter_to_freq = get_letter_count(message)
 
-	# Second, make a dictionary of each frequency count to the letter(s)
-	# with that frequency:
-	freq_to_letter = {}
-	for letter in LETTERS:
-		if letterToFreq[letter] not in freq_to_letter:
-			freq_to_letter[letterToFreq[letter]] = [letter]
-		else:
-			freq_to_letter[letterToFreq[letter]].append(letter)
+	# Calculate probability of each letter
+	# Initialise dictionary that stores the probability of each letter taken from letter_to_freq
+	# letter_probability: dict = {letter: letter_to_freq[letter] / message_length for letter in letter_to_freq}
+	# print(letter_probability)
 
-	# Third, put each list of letters in reverse "ETAOIN" order, and then
-	# convert it to a string:
-	for freq in freq_to_letter:
-		freq_to_letter[freq].sort(key=ETAOIN.find, reverse=True)
-		freq_to_letter[freq] = ''.join(freq_to_letter[freq])
+	# Initialises the Index of Coincidence variable with the numerator
+	total = sum( probability * (probability-1) for probability in letter_to_freq.values() )
+	# for letter, probability in letter_probability.items():
+	# 	total += probability**2
 
-	# Fourth, convert the freqToLetter dictionary to a list of
-	# tuple pairs (key, value), and then sort them:
-	freq_pairs = list(freq_to_letter.items())
-	freq_pairs.sort(key=get_item_at_index_zero, reverse=True)
+	# Divide by the denominator
+	total /= ( message_length * (message_length - 1) )
 
-	# Fifth, now that the letters are ordered by frequency, extract all
-	# the letters for the final string:
-	# freq_order = []
-	freq_dict = {}
-	for freq_pair in freq_pairs:
-		# freqOrder.append(freqPair[1])
-		freq_dict[freq_pair[0]] = freq_pair[1]
-
-	# return ''.join(freqOrder)
-	# return freqDict
-	return freq_pairs
+	print(total)
+	return round(total, 4)
