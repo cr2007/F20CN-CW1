@@ -27,7 +27,7 @@ def get_letter_count(message) -> dict:
 	return letter_count
 
 
-def calculate_index_of_conincidence(message: str, debug: bool = False) -> float:
+def calculate_index_of_coincidence(message: str, debug: bool = False) -> float:
 	"""
 	Calculates the Index of Coincidence (IoC) for a given message.
 
@@ -77,5 +77,5 @@ message = "Pogcpenatlfrdypsogtjgsqtiznsekvrkptisannfuoobvaordjsnuipogmjjtnehvlqc
 
 # print(get_letter_count(message))
 # print(get_frequency_order(message))
-print(calculate_index_of_conincidence(message, True))
+print(calculate_index_of_coincidence(message, True))
 
