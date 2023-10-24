@@ -28,6 +28,10 @@ def get_letter_count(message: str) -> dict:
 		TypeError: If the message parameter is not a string.
 	"""
 
+	# Check that the message is a string
+	if not isinstance(message, str):
+		raise TypeError("Message must be a string.")
+
 	# Initialises the dictionary with all letters and a value of 0.
 	letter_count: dict = {letter: 0 for letter in LETTERS}
 
