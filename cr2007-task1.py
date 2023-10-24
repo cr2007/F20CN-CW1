@@ -83,15 +83,25 @@ def calculate_index_of_coincidence(message: str, debug: bool = False) -> float:
 	return round(index_of_coincidence, 4)
 
 
-def key_length_guess(message, key_length, debug = False):
+def key_length_guess(message: str, key_length: int, debug: bool = False):
 	"""
-	Guesses the key length of a given message.
+	Guesses the key length of a given message by calculating the Index of Coincidence (IoC) for each sub-message
+	obtained by splitting the message into segments of length equal to the key length. The function then calculates
+	the average IoC of the sub-messages and compares it to the IoC of English text (0.0686). If the difference
+	between the two is less than 0.01, the key length is considered a possible key length.
 
 	Args:
 		message (str): The message to guess the key length of.
+		key_length (int): The length of the key to guess.
+		debug (bool, optional): Whether to print debug information to the console. Defaults to False.
 
-	Returns:
-		int: The guessed key length.
+	Raises:
+		TypeError: If the message argument is not a string.
+
+	Example:
+		>>> message = "Vjku ku c vqigvjkpi vjg qh vjgct yjgp"
+		>>> key_length_guess(message, 6)
+		2
 	"""
 
 	# Split the message into sub-messages based on the key length
@@ -109,12 +119,11 @@ def key_length_guess(message, key_length, debug = False):
 
 	# Get the closest key length
 	ioc_english = 0.0686
-	
 	difference = abs(average_ioc - ioc_english)
 	if debug:
 		print(f"IoC Difference for Key Length {key_length} = {round(difference, 4)}\n")
 
-	# Get the difference between the average IoC and the IoC of English
+	# Check if the difference between the average IoC and the IoC of English is less than 0.01
 	if abs(average_ioc - ioc_english) < 0.01:
 		print(f"Key Length {key_length} is a possible key length.\n")
 
