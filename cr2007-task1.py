@@ -9,10 +9,10 @@ Functions:
 		Calculates the Index of Coincidence (IoC) for a given message.
 """
 
-ETAOIN = 'ETAOINSHRDLCUMWFGYPBVKJXQZ'
-LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+ETAOIN = 'ETAOINSHRDLCUMWFGYPBVKJXQZ'  # Most common letters in English
+LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' # All letters in English
 
-def get_letter_count(message) -> dict:
+def get_letter_count(message: str) -> dict:
 	"""
 	Returns a dictionary with keys of single letters and values of the count
 	of how many times they appear in the message parameter.
@@ -29,11 +29,13 @@ def get_letter_count(message) -> dict:
 	"""
 
 	# Initialises the dictionary with all letters and a value of 0.
-	letter_count = {letter: 0 for letter in LETTERS}
-	
+	letter_count: dict = {letter: 0 for letter in LETTERS}
+
+	# Count the frequency of each letter in the message
 	for letter in message.upper():
 		letter_count[letter] += 1 if letter in LETTERS else 0
 
+	# Return the dictionary
 	return letter_count
 
 
@@ -61,16 +63,17 @@ def calculate_index_of_coincidence(message: str, debug: bool = False) -> float:
 	if not isinstance(message, str):
 		raise TypeError("Message must be a string.")
 
+	# Get the length of the message
 	message_length: str = len(message)
 
 	# Debug Code
 	if debug:
 		print(f"(DEBUG) Message length: {message_length}")
 
-	# First, get a dictionary of each letter and its frequency count:
+	# Get a dictionary of each letter and its frequency count:
 	letter_to_freq: dict = get_letter_count(message)
 
-	# Initialises the Index of Coincidence variable with the numerator
+	# Calculate the numerator of the Index of Coincidence
 	index_of_coincidence: float = sum( probability * (probability-1) for probability in letter_to_freq.values() )
 
 	# Divide by the denominator
@@ -80,6 +83,7 @@ def calculate_index_of_coincidence(message: str, debug: bool = False) -> float:
 	if debug:
 		print(f"(DEBUG) Index of Coincidence: {index_of_coincidence}")
 
+	# Return the calculated IoC value, rounded to 4 decimal places
 	return round(index_of_coincidence, 4)
 
 
