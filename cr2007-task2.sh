@@ -1,5 +1,18 @@
 #!/bin/bash
 
+# CHANDRASHEKHAR RAMAPRASAD (cr2007)
+# This script decrypts a file using a password that is a combination of a word from a dictionary and a digit
+# The script takes a single argument, which is the name of the file to decrypt
+
+# Make sure the script has execute permissions
+# chmod +x cr2007-task2.sh
+
+# -----------------------------------------------------------------------------
+# Run the script with the name of the file to decrypt as the first argument
+# Usage: ./cr2007-task2.sh <cipherfile>
+# -----------------------------------------------------------------------------
+
+
 # Link filedescriptor 10 with stdin to save the current state of stdin
 exec 10<&0
 # Replace stdin with a file supplied as a first argument to read from the file instead of standard input
