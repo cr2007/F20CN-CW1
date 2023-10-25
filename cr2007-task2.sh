@@ -1,41 +1,40 @@
 #!/bin/bash
 
-# Link filedescriptor 10 with stdin
+# Link filedescriptor 10 with stdin to save the current state of stdin
 exec 10<&0
-# stdin replaced with a file supplied as a first argument
+# Replace stdin with a file supplied as a first argument to read from the file instead of standard input
 exec < $1
 
-# remember the name of the input file
+# Remember the name of the input file for later use
 in=$1
 
-# init
-dictionary_file="words_shortened.txt"
+# Initialize variables for the dictionary file and the known prefix of the decrypted text
+dictionary_file="words_shortened.txt"     # the file containing the list of words to use as passwords
+known_prefix="Our shared secret word is:" # the prefix of the decrypted text that we are looking for
 
-known_prefix="Our shared secret word is:"
-
+# Iterate through the dictionary file to try different passwords
 while read -r password; do
+    # Generate passwords by appending digits to the words in the dictionary
     for digit in {0..9}; do
         combined_password="${password}${digit}"
 
+        # Decrypt the input file using the current password
         decrypted_text=$(openssl enc -aes-128-cbc -d -in $in -k "${combined_password}" -nosalt -md sha256 2> /dev/null | tr -d '\0')
 
+        # Check if the decrypted text contains the known prefix
         if [[ "$decrypted_text" == *"$known_prefix"* ]]; then
+            # Print the password and decrypted text if the prefix is found
             echo "Password found: ${combined_password}"
             echo -e "Plaintext: ${decrypted_text}"
             exit 0
-        else
-            echo "Password ${combined_password} failed"
-            echo "Decrypted text: ${decrypted_text}"
-            # echo "Known prefix: ${known_prefix}"
         fi
 
     done
 done < "${dictionary_file}"
 
+# Print a message if the password is not found in the dictionary or the prefix is not present in the decrypted text
 echo "Password not found in the dictionary, or the prefix is not present in the decrypted text"
 
-
-
-
+# Print a message if decryption fails with all passwords in the word list
 echo "Decryption failed with all passwords in the word list"
 exit 1
