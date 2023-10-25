@@ -9,8 +9,8 @@ Functions:
 		Calculates the Index of Coincidence (IoC) for a given message.
 """
 
-ETAOIN = 'ETAOINSHRDLCUMWFGYPBVKJXQZ'  # Most common letters in English
-LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' # All letters in English
+MOST_FREQUENT_LETTERS = 'ETAOINSHRDLCUMWFGYPBVKJXQZ'  # Most common letters in English
+LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'                # All letters in English
 
 def get_letter_count(message: str) -> dict:
 	"""
