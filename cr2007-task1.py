@@ -12,6 +12,7 @@ Functions:
 MOST_FREQUENT_LETTERS = 'ETAOINSHRDLCUMWFGYPBVKJXQZ'  # Most common letters in English
 LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'                # All letters in English
 
+# Source: https://inventwithpython.com/cracking/chapter19.html
 def get_letter_count(message: str) -> dict:
 	"""
 	Returns a dictionary with keys of single letters and values of the count
