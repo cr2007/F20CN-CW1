@@ -15,5 +15,7 @@
                 "VisualStudioExptTeam.vscodeintellicode"
             ]
         }
-    }
+    },
+
+    "postStartCommand": "chmod +x cr2007-task2.sh"
 }
