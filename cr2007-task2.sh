@@ -17,10 +17,7 @@ while read -r password; do
     for digit in {0..9}; do
         combined_password="${password}${digit}"
 
-        echo "Trying password: ${combined_password}"
-        decrypted_text=$(openssl enc -aes-128-cbc -d -in $in -k "${combined_password}" -nosalt -md sha256 2> /dev/null)
-        echo "Decrypted text: ${decrypted_text} with length ${#decrypted_text}"
-
+        decrypted_text=$(openssl enc -aes-128-cbc -d -in $in -k "${combined_password}" -nosalt -md sha256 2> /dev/null | tr -d '\0')
 
         if [[ "$decrypted_text" == *"$known_prefix"* ]]; then
             echo "Password found: ${combined_password}"
