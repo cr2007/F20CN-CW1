@@ -120,17 +120,18 @@ def key_length_guess(message: str, key_length: int, debug: bool = False):
 	if debug: # Debug Statement
 		print(f"IoC for Key Length {key_length} = {sub_message_iocs}")
 
-	# Get the average IoC of the sub-messages
+	# Calculate the average IoC of the sub-messages
 	average_ioc = sum(sub_message_iocs) / len(sub_message_iocs)
 	print(f"Average IoC for Key Length {key_length} = {round(average_ioc, 4)}")
 
-	# Get the closest key length
-	ioc_english = 0.0686
+	ioc_english = 0.0686 # IoC of English text
+
+	# Calculate the difference between the average IoC and the IoC of English
 	difference = abs(average_ioc - ioc_english)
 	if debug: # Debug Statement
 		print(f"IoC Difference for Key Length {key_length} = {round(difference, 4)}\n")
 
-	# Check if the difference between the average IoC and the IoC of English is less than 0.01
+	# If the difference is less than 0.01, the key length is considered a possible key length
 	if abs(average_ioc - ioc_english) < 0.01:
 		print(f"{key_length} is a possible key length.\n")
 	else:
@@ -139,21 +140,17 @@ def key_length_guess(message: str, key_length: int, debug: bool = False):
 
 # message = "PogcpenatlfrdypsogtjgsqtiznsekvrkptisannfuoobvaordjsnuipogmjjtnehvlqcizvqlntrgeaZfkojisgptiiarxjaraacizghkadtwvrqiheofhxegfouvadfgfmauijhunxegtibUozoiseyegtiruapogrbrsfegyapndjuohhtrgpavsunwzsawctoxdqcoadtucxibstatwvtapVrusewzsetgvnstwZftexjwqazuiecgveflnyaettehussfwzfpclAuitlaojkctaceogthdadtwzmmtzvyyobvnfsXwhqihmedylvawacurqasptafpclxeieafugvtmktztecdlreeSfnatgzswojksticznsauvenltjubegzodiidishirpbepicdutcodseztqfjcBgtxwyaugdaettiiefximunwzsbohztuocpefydlkzolpogrhvlrtdsefhtdoderrpmbavhudtpogrizmqacubqppkiqniZtusiyezailrmlrfudstfffhxegetwrtbolvrqvtetgaacyrasvsmnsnemktesKojimmsivriiacfmlajoyesrymnszfkojglmyxkrugwkyaulzlxojkluvtrnpsddepanfufswznqhxd"
 
-# print(get_letter_count(message))
-# print(get_frequency_order(message))
-# print(calculate_index_of_coincidence(message, True))
-
+# Prompt the user to enter the ciphertext and store it in the 'message' variable.
 message = input("Enter your ciphertext: ")
 
-# Accepts key lengths inputs until the user enters 0
-
 while True:
+	# Prompt the user to enter their key length guess and store it in the 'key_length' variable.
 	key_length = int(input("Enter your key length guess (0 to exit): "))
-	print("")
-	if key_length == 0:
-		print("Exiting...")
-		break
-	else:
-		key_length_guess(message, key_length)
+	print("") # Blank Line
 
-# key_length_guess(message, key_length)
+	# Checks if the user input is complete
+	if key_length == 0:
+		print("Exiting...") # Print a message indicating that the program is exiting.
+		break # Exit the loop
+	else: # Otherwise
+		key_length_guess(message, key_length)
