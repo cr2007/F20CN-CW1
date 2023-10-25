@@ -117,8 +117,7 @@ def key_length_guess(message: str, key_length: int, debug: bool = False):
 
 	# Get the IoC of each sub-message
 	sub_message_iocs = [calculate_index_of_coincidence(sub_message) for sub_message in sub_messages]
-	if debug: # Debug Statement
-		print(f"IoC for Key Length {key_length} = {sub_message_iocs}")
+	if debug: print(f"IoC for Key Length {key_length} = {sub_message_iocs}")
 
 	# Calculate the average IoC of the sub-messages
 	average_ioc = sum(sub_message_iocs) / len(sub_message_iocs)
@@ -128,8 +127,7 @@ def key_length_guess(message: str, key_length: int, debug: bool = False):
 
 	# Calculate the difference between the average IoC and the IoC of English
 	difference = abs(average_ioc - ioc_english)
-	if debug: # Debug Statement
-		print(f"IoC Difference for Key Length {key_length} = {round(difference, 4)}\n")
+	if debug: print(f"IoC Difference for Key Length {key_length} = {round(difference, 4)}\n")
 
 	# If the difference is less than 0.01, the key length is considered a possible key length
 	if abs(average_ioc - ioc_english) < 0.01:
