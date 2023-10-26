@@ -13,7 +13,6 @@ Functions:
         Calculates the Index of Coincidence (IoC) for a given message.
 """
 
-MOST_FREQUENT_LETTERS = 'ETAOINSHRDLCUMWFGYPBVKJXQZ'  # Most common letters in English
 LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'                # All letters in English
 
 # Source: https://inventwithpython.com/cracking/chapter19.html
