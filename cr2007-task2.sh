@@ -52,6 +52,9 @@ while read -r password; do
             echo "Password found: ${combined_password} (line ${line_number} in ${dictionary_file})"
             echo -e "Plaintext: ${decrypted_text}"
             exit 0
+            else
+            # Print a message if the prefix is not found
+            echo "Password '${combined_password}' - Not the Password"
         fi
 
     done
