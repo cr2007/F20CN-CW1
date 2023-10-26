@@ -27,12 +27,17 @@ exec < $1
 # Remember the name of the input file for later use
 in=$1
 
+
 # Initialize variables for the dictionary file and the known prefix of the decrypted text
+# dictionary_file="words.txt"     # the file containing the list of words to use as passwords
 dictionary_file="words_shortened.txt"     # the file containing the list of words to use as passwords
 known_prefix="Our shared secret word is:" # the prefix of the decrypted text that we are looking for
 
+line_number=0
+
 # Iterate through the dictionary file to try different passwords
 while read -r password; do
+    line_number=$((line_number+1))
     # Generate passwords by appending digits to the words in the dictionary
     for digit in {0..9}; do
         combined_password="${password}${digit}"
@@ -44,6 +49,7 @@ while read -r password; do
         if [[ "$decrypted_text" == *"$known_prefix"* ]]; then
             # Print the password and decrypted text if the prefix is found
             echo -e "\e[32;1mDecryption Success!\e[0m"
+            echo "Password found: ${combined_password} (line ${line_number} in ${dictionary_file})"
             echo -e "Plaintext: ${decrypted_text}"
             exit 0
         fi
