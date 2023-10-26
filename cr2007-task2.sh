@@ -40,6 +40,7 @@ while read -r password; do
     line_number=$((line_number+1))
     # Generate passwords by appending digits to the words in the dictionary
     for digit in {0..9}; do
+        # Append the digit to the current password
         combined_password="${password}${digit}"
 
         # Decrypt the input file using the current password
