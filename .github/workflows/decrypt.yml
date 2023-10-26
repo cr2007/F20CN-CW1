@@ -1,0 +1,17 @@
+name: Decrypt File
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  decrypt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Decrypt file
+        run: ./cr2007-task2.sh cipher-task2-48
+        # working-directory: ./scripts
