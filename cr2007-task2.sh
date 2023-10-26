@@ -14,8 +14,8 @@
 
 # Check if file argument is provided
 if [ -z "$1" ]; then
-    echo "Error: No file argument provided."
-    echo "Usage: ./line_count.sh <file>"
+    echo -e "\e[31;1mError:\e[0m No file argument (\e[33mciphertext\e[0m) provided."
+    echo "Usage: ./cr2007-task2.sh <file>"
     exit 1
 fi
 
@@ -43,7 +43,7 @@ while read -r password; do
         # Check if the decrypted text contains the known prefix
         if [[ "$decrypted_text" == *"$known_prefix"* ]]; then
             # Print the password and decrypted text if the prefix is found
-            echo "Password found: ${combined_password}"
+            echo -e "\e[32;1mDecryption Success!\e[0m"
             echo -e "Plaintext: ${decrypted_text}"
             exit 0
         fi
