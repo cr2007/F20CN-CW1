@@ -134,7 +134,7 @@ def key_length_guess(cipher_message: str, key_length_guess: int, debug: bool = F
 
     ioc_english: float = 0.0686 # IoC of English text
 
-    # Calculate the difference between the average IoC and the IoC of English
+    # Calculate the difference between the average IoC and the IoC of English language text
     ioc_difference: float = abs(average_ioc - ioc_english)
     if debug:
         print(f"IoC Difference for Key Length {key_length_guess} = {round(ioc_difference, 4)}\n")
