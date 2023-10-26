@@ -10,4 +10,7 @@
 	"files.trimTrailingWhitespace": true,
 	"editor.wordWrap": "on",
 	"git.autofetch": true,
+	"[python]": {
+		"editor.rulers": [100]
+	},
 }
