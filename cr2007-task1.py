@@ -121,7 +121,7 @@ def key_length_guess(cipher_message: str, key_length_guess: int, debug: bool = F
     """
 
     # Split the message into sub-messages based on the key length
-    sub_messages = [cipher_message[i::key_length_guess] for i in range(key_length_guess)]
+    sub_messages: list[str] = [cipher_message[i::key_length_guess] for i in range(key_length_guess)]
 
     # Get the IoC of each sub-message
     sub_message_iocs = [calculate_index_of_coincidence(sub_message) for sub_message in sub_messages]
@@ -132,7 +132,7 @@ def key_length_guess(cipher_message: str, key_length_guess: int, debug: bool = F
     average_ioc = sum(sub_message_iocs) / len(sub_message_iocs)
     print(f"Average IoC for Key Length {key_length_guess} = {round(average_ioc, 4)}")
 
-    ioc_english = 0.0686 # IoC of English text
+    ioc_english: float = 0.0686 # IoC of English text
 
     # Calculate the difference between the average IoC and the IoC of English
     ioc_difference: float = abs(average_ioc - ioc_english)
