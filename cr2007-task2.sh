@@ -12,6 +12,12 @@
 # Usage: ./cr2007-task2.sh <cipherfile>
 # -----------------------------------------------------------------------------
 
+# Check if file argument is provided
+if [ -z "$1" ]; then
+    echo "Error: No file argument provided."
+    echo "Usage: ./line_count.sh <file>"
+    exit 1
+fi
 
 # Link filedescriptor 10 with stdin to save the current state of stdin
 exec 10<&0
