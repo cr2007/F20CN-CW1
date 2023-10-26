@@ -135,12 +135,12 @@ def key_length_guess(cipher_message: str, key_length_guess: int, debug: bool = F
     ioc_english = 0.0686 # IoC of English text
 
     # Calculate the difference between the average IoC and the IoC of English
-    difference = abs(average_ioc - ioc_english)
+    ioc_difference: float = abs(average_ioc - ioc_english)
     if debug:
-        print(f"IoC Difference for Key Length {key_length_guess} = {round(difference, 4)}\n")
+        print(f"IoC Difference for Key Length {key_length_guess} = {round(ioc_difference, 4)}\n")
 
     # If the difference is less than 0.01, the key length is considered a possible key length
-    if abs(average_ioc - ioc_english) < 0.01:
+    if ioc_difference < 0.01:
         print(f"{key_length_guess} is a possible key length.\n")
     else:
         print(f"{key_length_guess} is not a possible key length.\n")
