@@ -29,8 +29,8 @@ in=$1
 
 
 # Initialize variables for the dictionary file and the known prefix of the decrypted text
-# dictionary_file="words.txt"     # the file containing the list of words to use as passwords
-dictionary_file="words_shortened.txt"     # the file containing the list of words to use as passwords
+dictionary_file="words.txt"     # the file containing the list of words to use as passwords
+
 known_prefix="Our shared secret word is:" # the prefix of the decrypted text that we are looking for
 
 line_number=0
