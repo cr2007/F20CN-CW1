@@ -11,7 +11,11 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+      - name: Check openssl version
+        run: openssl version
       - name: Give executable permissions
+        if: ${{ success() }}
         run: chmod +x cr2007-task2.sh
       - name: Decrypt file
+        if: ${{ success() }}
         run: ./cr2007-task2.sh cipher-task2-48
