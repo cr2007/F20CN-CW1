@@ -1,5 +1,18 @@
 {
     "name": "F20CN Container",
+    "image": "mcr.microsoft.com/devcontainers/python:3",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2":{
+            "installZsh": "true",
+            "username": "CSK"
+        },
+        "ghcr.io/devcontainers/features/git-lfs:1": {
+            "version": "latest"
+        },
+        "ghcr.io/devcontainers/features/github-cli:1": {
+            "version": "latest"
+        }
+    },
     "customizations": {
         "vscode": {
             "extensions": [
@@ -13,9 +26,16 @@
                 "GitHub.copilot-chat",
                 "bierner.github-markdown-preview",
                 "VisualStudioExptTeam.vscodeintellicode"
-            ]
+            ],
+
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "terminal.integrated.defaultProfile.linux": "zsh"
+            }
         }
     },
 
-    "postStartCommand": "chmod +x cr2007-task2.sh"
+    "postStartCommand": "chmod +x cr2007-task2.sh",
+
+    "remoteUser": "CSK"
 }
