@@ -1,0 +1,5 @@
+Welcome to the F20CN Coursework 1 Codespace!
+
+More info on the Coursework is provided in the Spec sheet of ./F20CN_F21CN_CW1.pdf
+
+For any queries on the commands, check out the ./README.md file.
