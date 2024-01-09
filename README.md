@@ -1,5 +1,10 @@
 # Computer Network Security (F20CN)
 
+<div align="center">
+  <img alt="Python" title="Python Programming Language" src="https://img.shields.io/badge/Python-informational?style=flat-sqaure&logo=python&logoColor=white&color=3776ab">
+  <img alt="Bash" title="Bash Scripting" src="https://img.shields.io/badge/Bash-informational?style=flat-sqaure&logo=gnubash&logoColor=white&color=4EAA25">
+</div>
+
 ## Coursework 1
 
 ### Task 1: Verifying Key Length Guesses: Vigenere Cipher
