@@ -1,5 +1,7 @@
 # Computer Network Security (F20CN)
 
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/cr2007/F20CN-CW1)
+
 <div align="center">
   <img alt="Python" title="Python Programming Language" src="https://img.shields.io/badge/Python-informational?style=flat-sqaure&logo=python&logoColor=white&color=3776ab">
   <img alt="Bash" title="Bash Scripting" src="https://img.shields.io/badge/Bash-informational?style=flat-sqaure&logo=gnubash&logoColor=white&color=4EAA25">
