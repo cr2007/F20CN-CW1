@@ -153,16 +153,24 @@ def key_length_guess(cipher_message: str, key_length_guess: int, debug: bool = F
 # message3 = "UiobalzbatipjgijiitxxsfsioejkesuptufctjpcfspbypvgpvseotfhbzqgetfctjovacmpnegpmjmxasfmtfsxosuwesfprfuxmftlhfoihfddlpsuumddntqxcvpjshfhtvstituwesjvhuexvfshipoprzupcujrTifvrfbicibglbupnnpjnufqaolhogttvfoiefoihbosejhwtffctidtnuvgyFvgoqfjsfewunpgaoetnufgtbjcmfoitpetcfjkeuitisbjdjfccftSaaaaeecnahstautwoxuweqvqljdlovmsnpucoujreuitcibglbupntstamjctfoiipohTivhtifhtbsrhbsaaubchjnhemglovmsaqqtasjctpxciobcihiibmbrkdppciegaxoqycmpclidrtfhCmplntuxgiugoqflamltrtbcdtuprfoiesupiofgsxpjlebrcpneaozwinqjlmjcgqfdpmfxnupwitetmpohtsbiipohogfaiyjgsbosqvbrkqpiipohTifrhbsaaubcmbeteoutrubxnnfcttftmmjzeuitbvtxnfthoguweebntifqutjcettdfuitdbzlatbrtvbalzuwetbaepgihffaiyjgsbosqvbrkqpiipohSqfrtbdaeboseoutrubxnnfctdmtasmnasftxdfalfoidfwxcftiodpccfbaypvgioutnujdntcjtuitydbcnpuqevttdjosegjciufayUitpvcaidhgoxtiisfsaoehutqxcjpjsbosewfctvbalzdptditspoiouittsjrkBosioeteeuwediprmbiaotwaeudmpwtqvjrkmzurpnioxoiouplncfuosflosehpsfpduiptuitppuxootlesfjsfmtstbcduiteoutrubxnnfctbugidlEoxfgfvmeepqaexjihcmpnefmtfsxostdnuitouitribcduitTbmaezspnetihfSdtitrhjmssuitSfmpstjtsdbcpsbrtjdttifxrefrequxootxnuitsbntpmbreuigovhwovuihfjgljgttjntsUitisbrtofkesxtastihjopnesprfmncbvhettjsqjripoIhfddlpsuumtbolfhcsftntidumeqevttddbjtjpjsmzihfopnepclzxweouwepdratjdnjtgihii"
 
 # Prompt the user to enter the ciphertext and store it in the 'message' variable.
-message = input("Enter your ciphertext: ")
+try:
+    message: str = input("Enter your ciphertext: ")
 
-while True:
-    # Prompt the user to enter their key length guess and store it in the 'key_length' variable.
-    key_length = int(input("Enter your key length guess (0 to exit): "))
-    print("") # Blank Line
+    while True:
+        try:
+            # Prompt the user to enter their key length guess and store it in the 'key_length' variable.
+            key_length = int(input("Enter your key length guess (0 to exit): "))
+            print("") # Blank Line
 
-    # Checks if the user input is complete
-    if key_length == 0:
-        print("Exiting...") # Print a message indicating that the program is exiting.
-        break # Exit the loop
-    else: # Otherwise
-        key_length_guess(message, key_length)
+            # Checks if the user input is complete
+            if key_length == 0:
+                print("Exiting...") # Print a message indicating that the program is exiting.
+                break # Exit the loop
+            else: # Otherwise
+                key_length_guess(message, key_length)
+        except ValueError:
+            print("Invalid Input. Please enter a number.")
+except KeyboardInterrupt:
+    # Enter a message when the user presses Ctrl+C and exits the program
+    print("\nExiting Program...")
+    print("Have a nice day :)")
