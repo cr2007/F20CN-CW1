@@ -10,7 +10,16 @@
 	"files.trimTrailingWhitespace": true,
 	"editor.wordWrap": "on",
 	"git.autofetch": true,
+	"diffEditor.ignoreTrimWhitespace": false,
+	"diffEditor.hideUnchangedRegions.enabled": true,
+	"audioCues.terminalCommandFailed": "on",
+	"audioCues.format": "userGesture",
+	"audioCues.save": "userGesture",
 	"[python]": {
 		"editor.rulers": [100]
 	},
+	"python.analysis.typeCheckingMode": "basic",
+	"python.testing.pytestArgs": ["tests/"],
+	"python.testing.unittestEnabled": false,
+	"python.testing.pytestEnabled": true,
 }
