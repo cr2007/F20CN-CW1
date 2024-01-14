@@ -162,11 +162,14 @@ def key_length_guess(cipher_message: str, key_length_guess: int, debug: bool = F
 
 # ---------------------------- #
 
-# Prompt the user to enter the ciphertext and store it in the 'message' variable.
+# Try block to catch KeyboardInterrupt (Ctrl+C)
 try:
+    # Prompt the user to enter the ciphertext and store it in the 'message' variable.
     message: str = input("Enter your ciphertext: ")
 
+    # Loops until the user enters 0 to exit
     while True:
+        # Try block to catch ValueError (if the user enters a non-integer value)
         try:
             # Prompt the user to enter their key length guess and store it in the 'key_length' variable.
             key_length = int(input("Enter your key length guess (0 to exit): "))
