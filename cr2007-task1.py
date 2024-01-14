@@ -98,7 +98,7 @@ def calculate_index_of_coincidence(cipher_message: str, debug: bool = False) -> 
     return round(index_of_coincidence, 4)
 
 
-def key_length_guess(cipher_message: str, key_length_guess: int, debug: bool = False):
+def key_length_guess(cipher_message: str, keyLength_guess: int, debug: bool = False):
     """
     Guesses the key length of a given message by calculating the Index of Coincidence (IoC) for each
     sub-message obtained by splitting the message into segments of length equal to the key length.
@@ -121,29 +121,29 @@ def key_length_guess(cipher_message: str, key_length_guess: int, debug: bool = F
     """
 
     # Split the message into sub-messages based on the key length
-    sub_messages: list[str] = [cipher_message[i::key_length_guess] for i in range(key_length_guess)]
+    sub_messages: list[str] = [cipher_message[i::keyLength_guess] for i in range(keyLength_guess)]
 
     # Get the IoC of each sub-message
     sub_message_iocs = [calculate_index_of_coincidence(sub_message) for sub_message in sub_messages]
     if debug:
-        print(f"IoC for Key Length {key_length_guess} = {sub_message_iocs}")
+        print(f"IoC for Key Length {keyLength_guess} = {sub_message_iocs}")
 
     # Calculate the average IoC of the sub-messages
     average_ioc = sum(sub_message_iocs) / len(sub_message_iocs)
-    print(f"Average IoC for Key Length {key_length_guess} = {round(average_ioc, 4)}")
+    print(f"Average IoC for Key Length {keyLength_guess} = {round(average_ioc, 4)}")
 
     ioc_english: float = 0.0686 # IoC of English text
 
     # Calculate the difference between the average IoC and the IoC of English language text
     ioc_difference: float = abs(average_ioc - ioc_english)
     if debug:
-        print(f"IoC Difference for Key Length {key_length_guess} = {round(ioc_difference, 4)}\n")
+        print(f"IoC Difference for Key Length {keyLength_guess} = {round(ioc_difference, 4)}\n")
 
     # If the difference is less than 0.01, the key length is considered a possible key length
     if ioc_difference < 0.01:
-        print(f"{key_length_guess} is a possible key length.\n")
+        print(f"{keyLength_guess} is a possible key length.\n")
     else:
-        print(f"{key_length_guess} is not a possible key length.\n")
+        print(f"{keyLength_guess} is not a possible key length.\n")
 
 # ---------------------------- #
 
