@@ -179,8 +179,8 @@ try:
             if key_length == 0:
                 print("Exiting...") # Print a message indicating that the program is exiting.
                 break # Exit the loop
-            else: # Otherwise
-                key_length_guess(message, key_length)
+
+            key_length_guess(message, key_length)
         except ValueError:
             print("Invalid Input. Please enter a number.")
 except KeyboardInterrupt:
