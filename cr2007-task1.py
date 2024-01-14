@@ -171,7 +171,8 @@ try:
     while True:
         # Try block to catch ValueError (if the user enters a non-integer value)
         try:
-            # Prompt the user to enter their key length guess and store it in the 'key_length' variable.
+            # Prompt the user to enter their key length guess
+            # and store it in the 'key_length' variable.
             key_length = int(input("Enter your key length guess (0 to exit): "))
             print("") # Blank Line
 
