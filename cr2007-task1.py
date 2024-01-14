@@ -13,8 +13,6 @@ Functions:
         Calculates the Index of Coincidence (IoC) for a given message.
 """
 
-LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'                # All letters in English
-
 # Source: https://inventwithpython.com/cracking/chapter19.html
 def get_letter_count(cipher_message: str) -> dict:
     """
@@ -36,15 +34,11 @@ def get_letter_count(cipher_message: str) -> dict:
     if not isinstance(cipher_message, str):
         raise TypeError("Message must be a string.")
 
-    # Initialises the dictionary with all letters and a value of 0.
-    letter_count: dict = {letter: 0 for letter in LETTERS}
+    cipher_message = cipher_message.upper()
 
-    # Count the frequency of each letter in the message
-    for letter in cipher_message.upper():
-        letter_count[letter] += 1 if letter in LETTERS else 0
-
-    # Return the dictionary
-    return letter_count
+    # This line of code creates a dictionary where the keys are the unique characters
+    # in cipher_message, and the values are the counts of each character in cipher_message.
+    return {i: cipher_message.count(i) for i in set(cipher_message)}
 
 
 def calculate_index_of_coincidence(cipher_message: str, debug: bool = False) -> float:
