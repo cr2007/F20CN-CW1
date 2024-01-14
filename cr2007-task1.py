@@ -74,7 +74,7 @@ def calculate_index_of_coincidence(cipher_message: str, debug: bool = False) -> 
         raise TypeError("Message must be a string.")
 
     # Get the length of the message
-    message_length: str = len(cipher_message)
+    message_length: int = len(cipher_message)
 
     # Debug Code
     if debug:
