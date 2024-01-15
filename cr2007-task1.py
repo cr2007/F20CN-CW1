@@ -91,7 +91,7 @@ def calculate_index_of_coincidence(cipher_message: str, debug: bool = False) -> 
     # Return the calculated IoC value, rounded to 4 decimal places
     return round(index_of_coincidence, 4)
 
-
+# pylint: disable=invalid-name
 def key_length_guess(cipher_message: str, keyLength_guess: int, debug: bool = False):
     """
     Guesses the key length of a given message by calculating the Index of Coincidence (IoC) for each
