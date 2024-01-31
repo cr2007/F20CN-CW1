@@ -9,7 +9,11 @@
 
 ## Coursework 1
 
+This repository contains the code and report for Coursework 1. The coursework consists of 2 tasks related to cryptography and network security.
+
 ### Task 1: Verifying Key Length Guesses: Vigenere Cipher
+
+This task is written in Python and implements a function that guesses the key length of a ciphertext encrypted with the Vigenere cipher.
 
 Tasks:
 - [X] Write a Python program
