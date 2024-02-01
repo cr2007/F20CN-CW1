@@ -2,6 +2,8 @@
 
 [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/cr2007/F20CN-CW1)
 
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://f20cn-cw1.streamlit.app)
+
 <div align="center">
   <img alt="Python" title="Python Programming Language" src="https://img.shields.io/badge/Python-informational?style=flat-sqaure&logo=python&logoColor=white&color=3776ab">
   <img alt="Bash" title="Bourne Again SHell" src="https://img.shields.io/badge/Bash-informational?style=flat-sqaure&logo=gnubash&logoColor=white&color=4EAA25">
