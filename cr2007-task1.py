@@ -13,6 +13,8 @@ Functions:
         Calculates the Index of Coincidence (IoC) for a given message.
 """
 
+# pylint: disable=invalid-name
+
 import streamlit as st
 
 st.set_page_config(
