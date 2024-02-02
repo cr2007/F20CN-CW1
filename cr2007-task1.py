@@ -107,7 +107,7 @@ def calculate_index_of_coincidence(cipher_message: str, debug: bool = False) -> 
     # Return the calculated IoC value, rounded to 4 decimal places
     return round(index_of_coincidence, 4)
 
-# pylint: disable=invalid-name
+
 def key_length_guess(cipher_message: str, keyLength_guess: int, debug: bool = False):
     """
     Guesses the key length of a given message by calculating the Index of Coincidence (IoC) for each
@@ -150,7 +150,8 @@ def key_length_guess(cipher_message: str, keyLength_guess: int, debug: bool = Fa
     ioc_difference: float = abs(average_ioc - ioc_english)
     if debug:
         print(f"IoC Difference for Key Length {keyLength_guess} = {round(ioc_difference, 4)}\n")
-        st.write(f"IoC Difference for Key Length **{keyLength_guess}** = $${round(ioc_difference, 4)}$$")
+        st.write(f"IoC Difference for Key Length **{keyLength_guess}**",
+                 " = $${round(ioc_difference, 4)}$$")
 
     # If the difference is less than 0.01, the key length is considered a possible key length
     if ioc_difference < 0.01:
@@ -177,35 +178,34 @@ def key_length_guess(cipher_message: str, keyLength_guess: int, debug: bool = Fa
 
 # ---------------------------- #
 
-# Try block to catch KeyboardInterrupt (Ctrl+C)
-try:
-    st.header("F20CN Coursework 1", help="Task 1 of the F20CN Coursework 1")
-
-    st.subheader("Task 1: Verifying Key Length Guesses: Vigenère Cipher")
-
-    # Prompt the user to enter the ciphertext and store it in the 'message' variable.
-    message = st.text_input("Enter your ciphertext: ",
-                           placeholder="Ciphertext", help="Encrypted message")
-
-    # Try block to catch ValueError (if the user enters a non-integer value)
+def main():
+    # Try block to catch KeyboardInterrupt (Ctrl+C)
     try:
-        # Prompt the user to enter their key length guess
-        # and store it in the 'key_length' variable.
-        key_length = st.number_input("Enter your key length",
-                                     help="Number of bits in a key", step=1, min_value=1)
+        message: str = input("Enter your ciphertext: ")
 
-        debug_mode = st.checkbox("Debug Mode", help="Enable debug mode to see the" +
-                                 "Index of Coincidence values")
+        # Loops until the user enters 0 to exit
+        while True:
+            # Try block to catch ValueError (if the user enters a non-integer value)
+            try:
+                # Prompt the user to enter their key length guess
+                # and store it in the 'key_length' variable.
+                key_length = int(input("Enter your key length guess (0 to exit): "))
+                print("") # Blank Line
 
-        if st.button("Submit", type="primary"):
-            if message != "":
-                with st.spinner("Calculating..."):
-                    key_length_guess(message, int(key_length), debug=debug_mode)
-            else:
-                st.info("Please enter a ciphertext", icon="⚠️")
-    except ValueError:
-        print("Invalid Input. Please enter a number.")
-except KeyboardInterrupt:
-    # Enter a message when the user presses Ctrl+C and exits the program
-    print("\nExiting Program...")
-    print("Have a nice day :)")
+                # Checks if the user input is complete
+                if key_length == 0:
+                    print("Exiting...") # Print a message indicating that the program is exiting.
+                    break # Exit the loop
+
+                key_length_guess(message, key_length)
+            except ValueError:
+                print("Invalid Input. Please enter a number.")
+    except KeyboardInterrupt:
+        # Enter a message when the user presses Ctrl+C and exits the program
+        print("\nExiting Program...")
+        print("Have a nice day :)")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+if __name__ == "__main__":
+    main()
