@@ -3,6 +3,18 @@ import streamlit as st
 
 cr2007_task1 = importlib.import_module("cr2007-task1")
 
+st.set_page_config(
+    page_title="F20CN CW1 - Task 1",
+    page_icon="🔐",
+    menu_items= {
+        "About": (
+            "Task 1 - Coursework 1 of Computer Network Security "
+            "([F20CN](https://curriculum.hw.ac.uk/coursedetails/F20CN?termcode=202324))\n"
+            "**Source Code:** https://github.com/cr2007/F20CN-CW1"""
+            )
+    }
+)
+
 def main():
     st.title("F20CN Coursework 1", help="Task 1 of the F20CN Coursework 1")
 

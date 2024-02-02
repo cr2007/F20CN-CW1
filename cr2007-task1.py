@@ -17,18 +17,6 @@ Functions:
 
 import streamlit as st
 
-st.set_page_config(
-    page_title="F20CN CW1 - Task 1",
-    page_icon="🔐",
-    menu_items= {
-        "About": (
-            "Task 1 - Coursework 1 of Computer Network Security "
-            "([F20CN](https://curriculum.hw.ac.uk/coursedetails/F20CN?termcode=202324))\n"
-            "**Source Code:** https://github.com/cr2007/F20CN-CW1"""
-            )
-    }
-)
-
 # Source: https://inventwithpython.com/cracking/chapter19.html
 def get_letter_count(cipher_message: str) -> dict:
     """
