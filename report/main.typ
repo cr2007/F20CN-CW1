@@ -116,7 +116,7 @@ The IoC is a metric that quantifies the likelihood of randomly selecting two ide
 Notably, the code for the frequency analysis function was referenced from Chapter 19: "Frequency Analysis" in the book titled "#link("https://inventwithpython.com/cracking/chapter19.html")[Cracking Codes with Python]." #cite(<Cracking-The-Code-Python-Book>)
 
 After computing the IoC values for all the sub-messages, the average IoC value is determined and stored in a designated variable.
-It is worth noting that the approximate IoC value for English text is known to be around $0.0686$.
+It is worth noting that the #underline("approximate IoC value") for English text is known to be around $0.0686$.
 The program proceeds to assess the disparity between the calculated average IoC and the expected IoC for English text.
 If the average IoC closely approximates the English value of $approx 0.0686$, the program acknowledges the key length guess as highly plausible and provides a corresponding confirmation message.
 In cases where the average IoC diverges significantly from the English IoC value, the program issues a message indicating that the guessed key length is not feasible.
