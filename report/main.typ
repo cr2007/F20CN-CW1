@@ -225,7 +225,7 @@ This sequence of operations ensured the extraction of the desired message, effec
 
 #heading("Python Code", level: 3)
 
-The code is also publicly available on GitHub: #underline(link("https://github.com/cr2007/F20CN-CW1"))
+The code is also publicly available on GitHub: #link("https://github.com/cr2007/F20CN-CW1")
 
 #figure(
   caption: "Docstring for the Task 1 module and creating a constant with all the 26 alphabets",
