@@ -25,5 +25,9 @@
     text(it)
   }
 
+  #show table.cell.where(fill: rgb("#262626")): it => {
+    strong(text(fill: rgb("#FFFFFF"), it))
+  }
+
   #doc
 ]

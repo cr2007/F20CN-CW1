@@ -201,10 +201,6 @@ This sequence of operations ensured the extraction of the desired message, effec
 
 #line(length: 100%)
 
-#show table.cell.where(fill: rgb("#262626")): it => {
-  strong(text(fill: rgb("#FFFFFF"), it))
-}
-
 #align(center, table(
   columns: 2,
   align: left,
