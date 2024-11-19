@@ -2,25 +2,13 @@
 
 #import "lib.typ": template
 
-#set document(
-  author: "Chandrashekhar R",
-  title: "F20CN Coursework 1 Report - CSK"
-)
+#set document(author: "Chandrashekhar R", title: "F20CN Coursework 1 Report - CSK")
 
 #show: template.with()
 
-#text(
-  size: 28pt,
-  font: "Dubai",
-  weight: "medium",
-  "F20CN Coursework 1"
-)\
+#text(size: 28pt, font: "Dubai", weight: "medium", "F20CN Coursework 1")\
 
-#text(
-  size: 11pt,
-  font: "Segoe UI",
-  "Course: Computer Network Security"
-)
+#text(size: 11pt, font: "Segoe UI", "Course: Computer Network Security")
 
 #link("https://teams.microsoft.com/l/chat/0/0?users=cr2007@hw.ac.uk")[Chandrashekhar Ramaprasad]
 (#link("mailto:cr2007@hw.ac.uk?subject=F20CN%20Coursework%201")[cr2007])\
@@ -77,12 +65,8 @@ FUNCTION keyLengthGuess(cipherMessage, keyLengthGuess)
 ``` */
 
 #figure(
-  image(
-    "images/Task1-PseudoCode.png",
-    height: 10.36cm,
-    alt: "Task 1 Pseudo-code"
-  ),
-  caption: "Task 1 code in the form of Pseudocode"
+  image("images/Task1-PseudoCode.png", height: 10.36cm, alt: "Task 1 Pseudo-code"),
+  caption: "Task 1 code in the form of Pseudocode",
 )
 
 The initial step in determining the key length for the Vigenère Cipher involves calculating the (average) Index of Coincidence (IoC) of the ciphertext, utilizing the key length provided by the user.
@@ -103,7 +87,7 @@ In cases where the average IoC diverges significantly from the English IoC value
 
 #figure(
   image("images/Task1-Testing.png"),
-  caption: "The testing results from the program as specified in the coursework specification"
+  caption: "The testing results from the program as specified in the coursework specification",
 ) \
 
 During the testing phase, I initiated the experiment by selecting a text containing approximately 600 characters.
@@ -167,7 +151,7 @@ EXIT
 
 #figure(
   caption: "Task 2 Pseudo-Code",
-  image("images/Task2-PseudoCode.png", alt: "Task 2 Pseudo-code", height: 15.11cm)
+  image("images/Task2-PseudoCode.png", alt: "Task 2 Pseudo-code", height: 15.11cm),
 )
 
 The shell script validates the presence of a ciphertext file as an argument at the outset; without it, the program halts, emphasizing the necessity of a ciphertext for decryption.
@@ -186,11 +170,8 @@ In cases where the password isn't found in the dictionary or the prefix isn't pr
 #heading("Testing", level: 2)
 
 #figure(
-  image(
-    "images/Task2-Testing.png",
-    alt: "Screenshot of Task 2 Testing"
-  ),
-  caption: "A screenshot of the shell script output once the ciphertext has been decrypted"
+  image("images/Task2-Testing.png", alt: "Screenshot of Task 2 Testing"),
+  caption: "A screenshot of the shell script output once the ciphertext has been decrypted",
 )
 \
 
@@ -205,12 +186,11 @@ This sequence of operations ensured the extraction of the desired message, effec
   columns: 2,
   align: left,
   fill: (x, _) =>
-    if calc.even(x) { rgb("#262626") }
-    else { white },
+  if calc.even(x) { rgb("#262626") } else { white },
   table.cell("Recovered Plaintext"),
   table.cell(`Our shared secret word is: sworn`, align: center),
   table.cell("Key"),
-  table.cell(`sworn0`, align: center)
+  table.cell(`sworn0`, align: center),
 ))
 
 #line(length: 100%)
@@ -223,9 +203,7 @@ This sequence of operations ensured the extraction of the desired message, effec
 
 The code is also publicly available on GitHub: #link("https://github.com/cr2007/F20CN-CW1")
 
-#figure(
-  caption: "Docstring for the Task 1 module and creating a constant with all the 26 alphabets",
-  [```python"""
+#figure(caption: "Docstring for the Task 1 module and creating a constant with all the 26 alphabets", [```python"""
 This module contains functions to calculate the Index of Coincidence (IoC) for a given message.
 The IoC is a measure of how similar the frequency distribution of letters in a message is to the
 expected frequency distribution of letters in the language the message is written in.
@@ -239,171 +217,169 @@ Functions:
     calculate_index_of_coincidence(message: str, debug: bool = False) -> float:
         Calculates the Index of Coincidence (IoC) for a given message.
 """
-  ```]
-)
+  ```])
 
 #figure(
   caption: "Does a frequency analysis on the ciphertext and returns a dictionary with the letters and the number of times they appear",
   [```python def get_letter_count(cipher_message: str) -> dict:
 
-    # Check that the message is a string
-    if not isinstance(cipher_message, str):
-        raise TypeError("Message must be a string.")
+      # Check that the message is a string
+      if not isinstance(cipher_message, str):
+          raise TypeError("Message must be a string.")
 
-    # Initialises the dictionary with all letters and a value of 0.
-    letter_count: dict = {letter: 0 for letter in LETTERS}
+      # Initialises the dictionary with all letters and a value of 0.
+      letter_count: dict = {letter: 0 for letter in LETTERS}
 
-    # Count the frequency of each letter in the message
-    for letter in cipher_message.upper():
-        letter_count[letter] += 1 if letter in LETTERS else 0
+      # Count the frequency of each letter in the message
+      for letter in cipher_message.upper():
+          letter_count[letter] += 1 if letter in LETTERS else 0
 
-    # Return the dictionary
-    return letter_count
-  ```]
+      # Return the dictionary
+      return letter_count
+    ```],
 )
 
 #figure(
   caption: "A function that calculates the Index of Coincidence for a given message",
   [```python def calculate_index_of_coincidence(
-    cipher_message: str,
-    debug: bool = False
-  ) -> float:
+      cipher_message: str,
+      debug: bool = False
+    ) -> float:
 
-    # Check that the message is a string
-    if not isinstance(cipher_message, str):
-        raise TypeError("Message must be a string.")
+      # Check that the message is a string
+      if not isinstance(cipher_message, str):
+          raise TypeError("Message must be a string.")
 
-    # Get the length of the message
-    message_length: str = len(cipher_message)
+      # Get the length of the message
+      message_length: str = len(cipher_message)
 
-    # Debug Code
-    if debug:
-        print(f"(DEBUG) Message length: {message_length}")
+      # Debug Code
+      if debug:
+          print(f"(DEBUG) Message length: {message_length}")
 
-    # Get a dictionary of each letter and its frequency count:
-    letter_to_freq: dict = get_letter_count(cipher_message)
+      # Get a dictionary of each letter and its frequency count:
+      letter_to_freq: dict = get_letter_count(cipher_message)
 
-    # Calculate the numerator of the Index of Coincidence
-    index_of_coincidence: float = index_of_coincidence: float = sum(
-          probability * (probability-1)
-          for probability
-          in letter_to_freq.values()
-    )
+      # Calculate the numerator of the Index of Coincidence
+      index_of_coincidence: float = index_of_coincidence: float = sum(
+            probability * (probability-1)
+            for probability
+            in letter_to_freq.values()
+      )
 
-    # Divide by the denominator
-    index_of_coincidence /= ( message_length * (message_length - 1) )
+      # Divide by the denominator
+      index_of_coincidence /= ( message_length * (message_length - 1) )
 
-    # Debug Statement
-    if debug:
-        print(f"(DEBUG) Index of Coincidence: {index_of_coincidence}")
+      # Debug Statement
+      if debug:
+          print(f"(DEBUG) Index of Coincidence: {index_of_coincidence}")
 
-    # Return the calculated IoC value, rounded to 4 decimal places
-    return round(index_of_coincidence, 4)
-  ```]
+      # Return the calculated IoC value, rounded to 4 decimal places
+      return round(index_of_coincidence, 4)
+    ```],
 )
 
 #figure(
   caption: "A function that calculates the Index of Coincidence for a given message",
   [```python def calculate_index_of_coincidence(
-    cipher_message: str,
-    debug: bool = False
-  ) -> float:
+      cipher_message: str,
+      debug: bool = False
+    ) -> float:
 
-    # Check that the message is a string
-    if not isinstance(cipher_message, str):
-        raise TypeError("Message must be a string.")
+      # Check that the message is a string
+      if not isinstance(cipher_message, str):
+          raise TypeError("Message must be a string.")
 
-    # Get the length of the message
-    message_length: str = len(cipher_message)
+      # Get the length of the message
+      message_length: str = len(cipher_message)
 
-    # Debug Code
-    if debug:
-        print(f"(DEBUG) Message length: {message_length}")
+      # Debug Code
+      if debug:
+          print(f"(DEBUG) Message length: {message_length}")
 
-    # Get a dictionary of each letter and its frequency count:
-    letter_to_freq: dict = get_letter_count(cipher_message)
+      # Get a dictionary of each letter and its frequency count:
+      letter_to_freq: dict = get_letter_count(cipher_message)
 
-    # Calculate the numerator of the Index of Coincidence
-    index_of_coincidence: float = index_of_coincidence: float = sum(
-          probability * (probability-1)
-          for probability
-          in letter_to_freq.values()
-    )
+      # Calculate the numerator of the Index of Coincidence
+      index_of_coincidence: float = index_of_coincidence: float = sum(
+            probability * (probability-1)
+            for probability
+            in letter_to_freq.values()
+      )
 
-    # Divide by the denominator
-    index_of_coincidence /= ( message_length * (message_length - 1) )
+      # Divide by the denominator
+      index_of_coincidence /= ( message_length * (message_length - 1) )
 
-    # Debug Statement
-    if debug:
-        print(f"(DEBUG) Index of Coincidence: {index_of_coincidence}")
+      # Debug Statement
+      if debug:
+          print(f"(DEBUG) Index of Coincidence: {index_of_coincidence}")
 
-    # Return the calculated IoC value, rounded to 4 decimal places
-    return round(index_of_coincidence, 4)
-  ```]
+      # Return the calculated IoC value, rounded to 4 decimal places
+      return round(index_of_coincidence, 4)
+    ```],
 )
 
 #figure(
   caption: "Guesses whether the key length of a message by calculating the Index of Coincidence",
   [```python def key_length_guess(
-    cipher_message: str,
-    key_length_guess: int,
-    debug: bool = False
-  ):
+      cipher_message: str,
+      key_length_guess: int,
+      debug: bool = False
+    ):
 
-    # Split the message into sub-messages based on the key length
-    sub_messages: list[str] = [
-              cipher_message[i::key_length_guess]
-              for i
-              in range(key_length_guess)
-    ]
+      # Split the message into sub-messages based on the key length
+      sub_messages: list[str] = [
+                cipher_message[i::key_length_guess]
+                for i
+                in range(key_length_guess)
+      ]
 
-    # Get the IoC of each sub-message
-    sub_message_iocs = [
-          calculate_index_of_coincidence(sub_message)
-          for sub_message
-          in sub_messages
-    ]
+      # Get the IoC of each sub-message
+      sub_message_iocs = [
+            calculate_index_of_coincidence(sub_message)
+            for sub_message
+            in sub_messages
+      ]
 
-    if debug:
-        print(f"IoC for Key Length {key_length_guess} = {sub_message_iocs}")
+      if debug:
+          print(f"IoC for Key Length {key_length_guess} = {sub_message_iocs}")
 
-    # Calculate the average IoC of the sub-messages
-    average_ioc = sum(sub_message_iocs) / len(sub_message_iocs)
-    print(f"Average IoC for Key Length {key_length_guess} = {round(average_ioc, 4)}")
+      # Calculate the average IoC of the sub-messages
+      average_ioc = sum(sub_message_iocs) / len(sub_message_iocs)
+      print(f"Average IoC for Key Length {key_length_guess} = {round(average_ioc, 4)}")
 
-    ioc_english: float = 0.0686 # IoC of English text
+      ioc_english: float = 0.0686 # IoC of English text
 
-    # Calculate the difference between the average IoC and the IoC of English language text
-    ioc_difference: float = abs(average_ioc - ioc_english)
-    if debug:
-        print(f"IoC Difference for Key Length {key_length_guess} = {round(ioc_difference, 4)}\n")
+      # Calculate the difference between the average IoC and the IoC of English language text
+      ioc_difference: float = abs(average_ioc - ioc_english)
+      if debug:
+          print(f"IoC Difference for Key Length {key_length_guess} = {round(ioc_difference, 4)}\n")
 
-    # If the difference is less than 0.01, the key length is considered a possible key length
-    if ioc_difference < 0.01:
-        print(f"{key_length_guess} is a possible key length.\n")
-    else:
-        print(f"{key_length_guess} is not a possible key length.\n")
-  ```]
+      # If the difference is less than 0.01, the key length is considered a possible key length
+      if ioc_difference < 0.01:
+          print(f"{key_length_guess} is a possible key length.\n")
+      else:
+          print(f"{key_length_guess} is not a possible key length.\n")
+    ```],
 )
 
 #figure(
-  caption: "Main executing code that takes the user input for the ciphertext and the key length guess and calls the other functions till the user wishes to exit
-",
+  caption: "Main executing code that takes the user input for the ciphertext and the key length guess and calls the other functions till the user wishes to exit",
   [```python # Prompt the user to enter the ciphertext and store it in the 'message' variable.
-message = input("Enter your ciphertext: ")
+  message = input("Enter your ciphertext: ")
 
-while True:
-    # Prompt the user to enter their key length guess and store it in the 'key_length' variable.
-    key_length = int(input("Enter your key length guess (0 to exit): "))
-    print("") # Blank Line
+  while True:
+      # Prompt the user to enter their key length guess and store it in the 'key_length' variable.
+      key_length = int(input("Enter your key length guess (0 to exit): "))
+      print("") # Blank Line
 
-    # Checks if the user input is complete
-    if key_length == 0:
-        print("Exiting...") # Print a message indicating that the program is exiting.
-        break # Exit the loop
-    else: # Otherwise
-        key_length_guess(message, key_length)
-  ```]
+      # Checks if the user input is complete
+      if key_length == 0:
+          print("Exiting...") # Print a message indicating that the program is exiting.
+          break # Exit the loop
+      else: # Otherwise
+          key_length_guess(message, key_length)
+    ```],
 )
 
 #heading("Testing", level: 3)
@@ -411,18 +387,15 @@ while True:
 #heading("Screenshot", level: 4)
 
 #figure(
+  caption: "A screenshot of my encryption of my plaintext on the Rumkin site",
   link("https://rumkin.com/tools/cipher/vigenere/")[
-    #image(
-      "images/Appendix-Task1-Testing.png",
-      alt: "Screenshot of the encrypted plaintext"
-    )
-  ],
-  caption: "A screenshot of my encryption of my plaintext on the Rumkin site"
+    #rect(image("images/Appendix-Task1-Testing.png", alt: "Screenshot of the encrypted plaintext"), stroke: 0.5pt)
+  ]
 )
 
 #heading("Plaintext", level: 4)
 
-#par(justify: true)[
+#par(justify: true,)[
   YoucannotworryaboutupsettingeverypersonyoucomeacrossbutyoumustbeselectivelycruelIfyoursuperiorisafallingstarthereisnothingtofearfromoutshininghimDonotbemercifulyourmasterhadnosuchscruplesinhisowncoldbloodedclimbtothetopGaugehisstrengthIfheisweakdiscreetlyhastenhisdownfallOutclooutchannoutsmarthimatkeymomentsIfheisveryweakandreadytofallletnaturetakeitscourseDonotriskoutshiningafeeblesuperioritmightappearcruelorspitefulButifyourmasterisfirminhispositionyetyouknowyourselftobethemorecapablehideyourtimeandbepatientItisthenaturalcourseofthingsthatpowereventuallyfadesandweakensYourmasterwillfallsomedayandifyouplayitrightyouwilloutliveandsomedayoutshinehim
 ]
 
@@ -447,9 +420,7 @@ zfkoj glmyx krugw kyaul zlxoj kluvt rnpsd depan fufsw znqhx d\
 
 #heading(level: 3, "Shell Code")
 
-#figure(
-  caption: "Checking if the file argument was provided",
-  [```sh #!/bin/bash
+#figure(caption: "Checking if the file argument was provided", [```sh #!/bin/bash
 
 # CHANDRASHEKHAR RAMAPRASAD (cr2007)
 # This script decrypts a file using a password that is a combination of a word from a dictionary and a digit
@@ -469,70 +440,71 @@ if [ -z "$1" ]; then
     echo "Usage: ./cr2007-task2.sh <file>"
     exit 1
 fi
-```]
-)
+```])
+
+#line(length: 100%)
 
 #figure(
   caption: "Initialising variables before the loop",
   [```sh # Link filedescriptor 10 with stdin to save the current state of stdin
-exec 10<&0
-# Replace stdin with a file supplied as a first argument to read from the file instead of standard input
-exec < $1
+  exec 10<&0
+  # Replace stdin with a file supplied as a first argument to read from the file instead of standard input
+  exec < $1
 
-# Remember the name of the input file for later use
-in=$1
+  # Remember the name of the input file for later use
+  in=$1
 
 
-# Initialize variables for the dictionary file and the known prefix of the decrypted text
-dictionary_file="words.txt"     # the file containing the list of words to use as passwords
+  # Initialize variables for the dictionary file and the known prefix of the decrypted text
+  dictionary_file="words.txt"     # the file containing the list of words to use as passwords
 
-known_prefix="Our shared secret word is:" # the prefix of the decrypted text that we are looking for
+  known_prefix="Our shared secret word is:" # the prefix of the decrypted text that we are looking for
 
-line_number=0
-```]
+  line_number=0
+  ```],
 )
 
+#line(length: 100%)
+
 #figure(
-  caption: "The loop sequence that brute-forces every single password generated
-from the dictionary file and decrypts the input file using the openssl command
-",
+  caption: "The loop sequence that brute-forces every single password generated from the dictionary file and decrypts the input file using the openssl command",
   [```sh # Iterate through the dictionary file to try different passwords
-while read -r password; do
-    line_number=$((line_number+1))
-    # Generate passwords by appending digits to the words in the dictionary
-    for digit in {0..9}; do
-        # Append the digit to the current password
-        combined_password="${password}${digit}"
+  while read -r password; do
+      line_number=$((line_number+1))
+      # Generate passwords by appending digits to the words in the dictionary
+      for digit in {0..9}; do
+          # Append the digit to the current password
+          combined_password="${password}${digit}"
 
-        # Decrypt the input file using the current password
-        decrypted_text=$(openssl enc -aes-128-cbc -d -in $in -k "${combined_password}" -nosalt -md sha256 2> /dev/null | tr -d '\0')
+          # Decrypt the input file using the current password
+          decrypted_text=$(openssl enc -aes-128-cbc -d -in $in -k "${combined_password}" -nosalt -md sha256 2> /dev/null | tr -d '\0')
 
-        # Check if the decrypted text contains the known prefix
-        if [[ "$decrypted_text" == *"$known_prefix"* ]]; then
-            # Print the password and decrypted text if the prefix is found
-            echo -e "\e[32;1mDecryption Success!\e[0m"
-            echo "Password found: ${combined_password} (line ${line_number} in ${dictionary_file})"
-            echo -e "Plaintext: ${decrypted_text}"
-            exit 0
-            else
-            # Print a message if the prefix is not found
-            echo "Password '${combined_password}' - Not the Password"
-        fi
+          # Check if the decrypted text contains the known prefix
+          if [[ "$decrypted_text" == *"$known_prefix"* ]]; then
+              # Print the password and decrypted text if the prefix is found
+              echo -e "\e[32;1mDecryption Success!\e[0m"
+              echo "Password found: ${combined_password} (line ${line_number} in ${dictionary_file})"
+              echo -e "Plaintext: ${decrypted_text}"
+              exit 0
+              else
+              # Print a message if the prefix is not found
+              echo "Password '${combined_password}' - Not the Password"
+          fi
 
-    done
-done < "${dictionary_file}"
-```]
+      done
+  done < "${dictionary_file}"
+  ```],
 )
 
 #figure(
   caption: "Error message if none of the passwords in the dictionary file were able to decrypt the input file",
   [```sh # Print a message if the password is not found in the dictionary or the prefix is not present in the decrypted text
-echo "Password not found in the dictionary, or the prefix is not present in the decrypted text"
+  echo "Password not found in the dictionary, or the prefix is not present in the decrypted text"
 
-# Print a message if decryption fails with all passwords in the word list
-echo "Decryption failed with all passwords in the word list"
-exit 1
-```]
+  # Print a message if decryption fails with all passwords in the word list
+  echo "Decryption failed with all passwords in the word list"
+  exit 1
+  ```],
 )
 
 #line(length: 100%)
