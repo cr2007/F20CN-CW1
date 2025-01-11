@@ -2,12 +2,14 @@
 
 #import "lib.typ": template
 #import "@preview/codly:1.2.0": *
-#import "@preview/codly-languages:0.1.1": *
+#import "@preview/codly-languages:0.1.4": *
 #show: codly-init.with()
+#codly(languages: codly-languages)
 
 #set document(author: "Chandrashekhar R", title: "F20CN Coursework 1 Report - CSK")
 #set line(length: 100%)
 
+#show figure: set block(breakable: true)
 #show: template.with()
 
 #text(size: 28pt, font: "Dubai", weight: "medium", "F20CN Coursework 1")\
@@ -396,6 +398,8 @@ Functions:
     #rect(image("images/Appendix-Task1-Testing.png", alt: "Screenshot of the encrypted plaintext"), stroke: 0.5pt)
   ]
 )
+
+#pagebreak()
 
 #heading("Plaintext", level: 4)
 
