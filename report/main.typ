@@ -6,6 +6,7 @@
 #show: codly-init.with()
 
 #set document(author: "Chandrashekhar R", title: "F20CN Coursework 1 Report - CSK")
+#set line(length: 100%)
 
 #show: template.with()
 
@@ -103,7 +104,7 @@ However, it was only for the key length of *5* that the program provided an affi
 
 \
 
-#line(length: 100%)
+#line()
 
 #pagebreak()
 
@@ -166,7 +167,7 @@ If the known prefix is found, the script prints the password and decrypted text,
 Conversely, if the prefix remains absent, the script notifies that the password is incorrect.
 In cases where the password isn't found in the dictionary or the prefix isn't present in the decrypted text, the script exits with a message that the decryption failed and exits with an error message.
 
-#line(length: 100%)
+#line()
 
 #pagebreak()
 
@@ -183,7 +184,7 @@ The output of the program included the password used, the specific dictionary fi
 
 This sequence of operations ensured the extraction of the desired message, effectively capturing the essence of the decryption process.
 
-#line(length: 100%)
+#line()
 
 #align(center, table(
   columns: 2,
@@ -196,7 +197,7 @@ This sequence of operations ensured the extraction of the desired message, effec
   table.cell(`sworn0`, align: center),
 ))
 
-#line(length: 100%)
+#line()
 
 #heading("Appendix")
 
@@ -417,7 +418,7 @@ pogri zmqac ubqpp kiqni Ztusi yezai lrmlr fudst fffhx egetw rtbol\
 vrqvt etgaa cyras vsmns nemkt esKoj immsi vriia cfmla joyes rymns\
 zfkoj glmyx krugw kyaul zlxoj kluvt rnpsd depan fufsw znqhx d\
 
-#line(length: 100%)
+#line()
 
 #heading(level: 2, "Task 2")
 
@@ -445,7 +446,7 @@ if [ -z "$1" ]; then
 fi
 ```])
 
-#line(length: 100%)
+#line() \
 
 #figure(
   caption: "Initialising variables before the loop",
@@ -467,7 +468,7 @@ fi
   ```],
 )
 
-#line(length: 100%)
+#line() \
 
 #figure(
   caption: "The loop sequence that brute-forces every single password generated from the dictionary file and decrypts the input file using the openssl command",
@@ -499,6 +500,8 @@ fi
   ```],
 )
 
+#line() \
+
 #figure(
   caption: "Error message if none of the passwords in the dictionary file were able to decrypt the input file",
   [```sh # Print a message if the password is not found in the dictionary or the prefix is not present in the decrypted text
@@ -510,9 +513,8 @@ fi
   ```],
 )
 
-#line(length: 100%)
+#line()
 
 // --------------------------------
-
 
 #bibliography("bibliography.bib", style: "harvard-cite-them-right")
