@@ -3,14 +3,26 @@
 #import "lib.typ": template
 #import "@preview/codly:1.2.0": *
 #import "@preview/codly-languages:0.1.4": *
-#show: codly-init.with()
-#codly(languages: codly-languages)
+#import "@preview/glossy:0.5.2": *
 
 #set document(author: "Chandrashekhar R", title: "F20CN Coursework 1 Report - CSK")
 #set line(length: 100%)
 
 #show figure: set block(breakable: true)
 #show: template.with()
+#show: codly-init.with()
+
+#let glossary = (
+  ioc: (
+    short: "IoC",
+    long: "Index of Coincidence",
+    description: "The probability of two randomly selected letters being equal"
+  ),
+)
+
+#show: init-glossary.with(glossary)
+
+#codly(languages: codly-languages)
 
 #text(size: 28pt, font: "Dubai", weight: "medium", "F20CN Coursework 1")\
 
@@ -75,17 +87,17 @@ FUNCTION keyLengthGuess(cipherMessage, keyLengthGuess)
   caption: "Task 1 code in the form of Pseudocode",
 )
 
-The initial step in determining the key length for the Vigenère Cipher involves calculating the (average) Index of Coincidence (IoC) of the ciphertext, utilizing the key length provided by the user.
+The initial step in determining the key length for the Vigenère Cipher involves calculating the (average) @ioc of the ciphertext, utilizing the key length provided by the user.
 The ciphertext is subsequently partitioned into sub-messages by extracting every n#super[th] element in the ciphertext, with n representing the guessed key length.
-These sub-messages are then collected into a list and forwarded to a dedicated function for IoC calculation.
-The IoC is a metric that quantifies the likelihood of randomly selecting two identical letters from a given text and is assessed based on the frequency analysis of the ciphertext.
+These sub-messages are then collected into a list and forwarded to a dedicated function for @ioc calculation.
+The @ioc is a metric that quantifies the likelihood of randomly selecting two identical letters from a given text and is assessed based on the frequency analysis of the ciphertext.
 Notably, the code for the frequency analysis function was referenced from Chapter 19: "Frequency Analysis" in the book titled "#link("https://inventwithpython.com/cracking/chapter19.html")[Cracking Codes with Python]." #cite(<Cracking-The-Code-Python-Book>)
 
-After computing the IoC values for all the sub-messages, the average IoC value is determined and stored in a designated variable.
+After computing the @ioc values for all the sub-messages, the average @ioc value is determined and stored in a designated variable.
 It is worth noting that the #underline("approximate IoC value") for English text is known to be around $0.0686$.
-The program proceeds to assess the disparity between the calculated average IoC and the expected IoC for English text.
-If the average IoC closely approximates the English value of $approx 0.0686$, the program acknowledges the key length guess as highly plausible and provides a corresponding confirmation message.
-In cases where the average IoC diverges significantly from the English IoC value, the program issues a message indicating that the guessed key length is not feasible.
+The program proceeds to assess the disparity between the calculated average @ioc and the expected @ioc for English text.
+If the average @ioc closely approximates the English value of $approx 0.0686$, the program acknowledges the key length guess as highly plausible and provides a corresponding confirmation message.
+In cases where the average @ioc diverges significantly from the English @ioc value, the program issues a message indicating that the guessed key length is not feasible.
 
 #pagebreak()
 
@@ -101,7 +113,7 @@ This text was subsequently encrypted using the Vigenère cipher, employing the f
 These characters were entered into the program as prompted.
 
 Following this initial setup, I proceeded to evaluate potential key lengths by inputting values of 4, 5, and 6 into the program.
-The program then diligently computed and displayed the (average) Index of Coincidence (IoC) values for each of these key length guesses.
+The program then diligently computed and displayed the (average) @ioc:both values for each of these key length guesses.
 However, it was only for the key length of *5* that the program provided an affirmative indication of a possible match, thereby confirming it as the likely key length.
 
 \
